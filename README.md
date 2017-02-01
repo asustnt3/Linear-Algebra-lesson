@@ -24,6 +24,31 @@ for i in range(M1.shape[1]):
 ```
 ###矩阵相乘 Matrix Multiplication
 方法1
-`
+```
 M1.dot(M2)
-`
+```
+方法2：M1的每一列与M2的每一行相乘得出一个矩阵，再把这些矩阵相加
+```
+Mul1=np.zeros([M1.shape[0],M2.shape[1]])
+for i in range(M1.shape[1]):
+       Mul1+=M1[:,i].reshape(M1.shape[0],1).dot(M2[i].reshape(1,-1))
+```
+ps:对于reshape的原因
+```
+M1[0,:]
+Out: 
+array([0, 1, 2, 3, 4, 5])
+M1[:,0].reshape(1,-1)
+Out: 
+array([[ 0,  6, 12, 18]])
+M1[:,0].reshape(4,1)
+Out: 
+array([[ 0],
+       [ 6],
+       [12],
+       [18]])
+```
+方法3：M1的每一列与M2的每一行相乘得出一个数字，再合并为一个矩阵
+```
+Mul2=[M1[i].reshape(1,-1).dot(M2[:,j].reshape(M2.shape[0],1)).item() for i in range(M1.shape[0]) for j in range(M2.shape[1])]
+```
