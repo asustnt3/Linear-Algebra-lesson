@@ -1,5 +1,6 @@
 # Linear-Algebra-lesson
-##矩阵相乘 Matrix Multiplication
+##矩阵基本运算
+###提取矩阵的行与列
 考虑两个矩阵
 ```
 M1=np.arange(24).reshape(4,6)
@@ -16,4 +17,13 @@ array([[30, 29, 28, 27, 26],
        [15, 14, 13, 12, 11],
        [10,  9,  8,  7,  6],
        [ 5,  4,  3,  2,  1]])
+for i in range(M1.shape[0]):
+       print('row', i, ':', M1[i])
+for i in range(M1.shape[1]):
+       print('column', i, ':', M1[:,i])
 ```
+###矩阵相乘 Matrix Multiplication
+方法1
+`
+M1.dot(M2)
+`
