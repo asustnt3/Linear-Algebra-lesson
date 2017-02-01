@@ -1,6 +1,6 @@
 # Linear-Algebra-lesson
 ##矩阵相乘 Matrix Multiplication
--考虑两个矩阵
+考虑两个矩阵
 ```
 M1=np.arange(24).reshape(4,6)
 M2=np.arange(30,0,-1).reshape(6,5)
